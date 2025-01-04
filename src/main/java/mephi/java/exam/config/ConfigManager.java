@@ -5,22 +5,22 @@ import java.util.Properties;
 
 public class ConfigManager {
     private static final long DEFAULT_LINK_LIFETIME = 3600;
-    private static final long DEFAULT_LINK_LIMIT = 10;
+    private static final int DEFAULT_LINK_LIMIT = 10;
     private static long linkLifeTimeSeconds;
-    private static long clicksLimit;
+    private static int clicksLimit;
 
     private ConfigManager() {
     }
 
     static{
         Properties properties = new Properties();
-        try(InputStream is = ConfigManager.class.getResourceAsStream("resources/config.properties")){
+        try(InputStream is = ConfigManager.class.getResourceAsStream("/config.properties")){
             if (is != null){
                 properties.load(is);
             }
 
             linkLifeTimeSeconds = Long.parseLong(properties.getProperty("link.lifetime", String.valueOf(DEFAULT_LINK_LIFETIME)));
-            clicksLimit = Long.parseLong(properties.getProperty("link.limit", String.valueOf(DEFAULT_LINK_LIFETIME)));
+            clicksLimit = Integer.parseInt(properties.getProperty("link.limit", String.valueOf(DEFAULT_LINK_LIFETIME)));
 
         } catch (Exception e) {
             linkLifeTimeSeconds = DEFAULT_LINK_LIFETIME;
@@ -29,7 +29,7 @@ public class ConfigManager {
 
     }
 
-    public static long getClicksLimit() {
+    public static int getClicksLimit() {
         return clicksLimit;
     }
 
