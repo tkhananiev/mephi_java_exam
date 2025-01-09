@@ -12,16 +12,12 @@ public class User {
         this.uuid = uuid;
         this.links = new ArrayList<>();
     }
-
-
     public String getUuid() {
         return uuid;
     }
-
     public List<Link> getLinks() {
         return links;
     }
-
     public void addLink(Link link) {
         links.add(link);
     }

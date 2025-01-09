@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LinkService {
-    private static final String BASE_URL = "http://short.lenta.ru/";
+    private static final String BASE_URL = "clck.ru/";
     private static final int SHORT_CODE_LENGTH = 7;
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private final SecureRandom random = new SecureRandom();
@@ -38,6 +38,9 @@ public class LinkService {
     public void removeLink(Link link, User user){
         linkMap.remove(link.getShortUrl());
         user.removeLink(link);
+    }
+    public Link getLinkByShortUrl(String shortUrl){
+        return linkMap.get(shortUrl);
     }
 
     public boolean updateLink(String shortUrl, String originalUrl, String userUuid){

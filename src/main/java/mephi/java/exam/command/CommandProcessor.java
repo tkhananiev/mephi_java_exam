@@ -2,7 +2,6 @@ package mephi.java.exam.command;
 
 import mephi.java.exam.service.LinkService;
 import mephi.java.exam.service.UserService;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,10 +9,10 @@ public class CommandProcessor {
     private final Map<String, Command> commands = new HashMap<>();
 
     public CommandProcessor(UserService userService, LinkService linkService) {
-        commands.put("create", new CreateCommand());
-        commands.put("edit", new EditCommand());
-        commands.put("goto", new GoToCommand());
-        commands.put("list", new ListCommand());
+        commands.put("create", new CreateCommand(userService, linkService));
+        commands.put("edit", new EditCommand(userService, linkService));
+        commands.put("goto", new GoToCommand(userService, linkService));
+        commands.put("list", new ListCommand(userService));
     }
 
     public boolean process(String input){

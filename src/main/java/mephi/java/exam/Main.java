@@ -2,13 +2,7 @@ package mephi.java.exam;
 import mephi.java.exam.command.CommandProcessor;
 import mephi.java.exam.service.LinkService;
 import mephi.java.exam.service.UserService;
-
-import java.io.IOException;
 import java.util.Scanner;
-import java.awt.Desktop;
-import java.net.URI;
-import java.net.URISyntaxException;
-
 
 public class Main {
     public static void main (String[] args) {
@@ -19,6 +13,7 @@ public class Main {
         CommandProcessor commandProcessor = new CommandProcessor(userService, linkService);
         try(Scanner scanner = new Scanner(System.in)){
             while(true){
+                printMenu();
                 System.out.print("Введите команду: ");
                 String line = scanner.nextLine();
                 boolean continueWork = commandProcessor.process(line);
@@ -31,5 +26,16 @@ public class Main {
 
         System.out.println("Программа завершена!");
 
+    }
+    private static void printMenu(){
+        System.out.println("--------------------------------------------------------------------------------------------");
+        System.out.println("Доступные команды: ");
+        System.out.println("Создание новой ссылки и нового пользователя: create <originalUrl> <limit>");
+        System.out.println("Создание новой ссылки для существующего пользователя: create <uuid> <originalUrl> <limit>");
+        System.out.println("Редактирование ссылки: edit <uuid> <shortUrl> <newOriginalUrl>");
+        System.out.println("Переход в браузере по ссылке: goto <shortUrl>");
+        System.out.println("Список ссылок пользователя: list <uuid>");
+        System.out.println("Завершение программы: exit");
+        System.out.println("--------------------------------------------------------------------------------------------");
     }
 }
