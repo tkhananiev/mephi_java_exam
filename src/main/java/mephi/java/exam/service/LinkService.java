@@ -34,9 +34,10 @@ public class LinkService {
         return sb.toString();
     }
 
-    public void removeLink(Link link, User user){
+    public boolean removeLink(Link link, User user){
         linkMap.remove(link.getShortUrl());
         user.removeLink(link);
+        return false;
     }
     public Link getLinkByShortUrl(String shortUrl){
         return linkMap.get(shortUrl);
@@ -53,4 +54,7 @@ public class LinkService {
         link.setOriginalUrl(originalUrl);
         return true;
     }
+//    public boolean removeShortUrl(String shortUrl, User user){
+//        return
+//    }
 }

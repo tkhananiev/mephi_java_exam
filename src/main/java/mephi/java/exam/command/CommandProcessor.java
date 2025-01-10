@@ -11,6 +11,7 @@ public class CommandProcessor {
     public CommandProcessor(UserService userService, LinkService linkService) {
         commands.put("create", new CreateCommand(userService, linkService));
         commands.put("edit", new EditCommand(userService, linkService));
+        commands.put("remove", new RemoveCommand(userService, linkService));
         commands.put("goto", new GoToCommand(userService, linkService));
         commands.put("list", new ListCommand(userService));
     }
@@ -27,7 +28,7 @@ public class CommandProcessor {
         }
         Command command = commands.get(commandName);
         if (command == null){
-            System.out.println("Неизвестная команда. Доступные комманды - create, edit, goto, list, exit");
+            System.out.println("Неизвестная команда. Доступные комманды - create, edit, remove, goto, list, exit");
             return true;
         }
         command.execute(parts);
