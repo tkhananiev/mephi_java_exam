@@ -54,7 +54,5 @@ public class LinkService {
         link.setOriginalUrl(originalUrl);
         return true;
     }
-//    public boolean removeShortUrl(String shortUrl, User user){
-//        return
-//    }
+
 }
