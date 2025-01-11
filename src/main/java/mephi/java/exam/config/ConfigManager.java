@@ -20,7 +20,7 @@ public class ConfigManager {
             }
 
             linkLifeTimeSeconds = Long.parseLong(properties.getProperty("link.lifetime", String.valueOf(DEFAULT_LINK_LIFETIME)));
-            clicksLimit = Integer.parseInt(properties.getProperty("link.limit", String.valueOf(DEFAULT_LINK_LIFETIME)));
+            clicksLimit = Integer.parseInt(properties.getProperty("link.limit", String.valueOf(DEFAULT_LINK_LIMIT)));
 
         } catch (Exception e) {
             linkLifeTimeSeconds = DEFAULT_LINK_LIFETIME;
