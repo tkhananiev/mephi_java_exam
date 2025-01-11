@@ -32,7 +32,7 @@ public class Main {
         System.out.println("Доступные команды: ");
         System.out.println("Создание новой ссылки и нового пользователя: create <originalUrl> <limit>");
         System.out.println("Создание новой ссылки для существующего пользователя: create <uuid> <originalUrl> <limit>");
-        System.out.println("Редактирование ссылки: edit <uuid> <shortUrl> <newOriginalUrl>");
+        System.out.println("Обновление лимита перехода по ссылке: edit <uuid> <shortUrl> <newClickLimit>");
         System.out.println("Удаление ссылки: remove <uuid> <shortUrl>");
         System.out.println("Переход в браузере по ссылке: goto <shortUrl>");
         System.out.println("Список ссылок пользователя: list <uuid>");

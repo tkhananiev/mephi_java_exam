@@ -43,7 +43,7 @@ public class LinkService {
         return linkMap.get(shortUrl);
     }
 
-    public boolean updateLink(String shortUrl, String originalUrl, String userUuid){
+    public boolean updateLink(String shortUrl, int newClickLimit, String userUuid){
         Link link = linkMap.get(shortUrl);
         if (link == null){
             return false;
@@ -51,7 +51,7 @@ public class LinkService {
         if (!link.getOwnerUuid().equals(userUuid)){
             return false;
         }
-        link.setOriginalUrl(originalUrl);
+        link.setMaxClicks(newClickLimit);
         return true;
     }
 

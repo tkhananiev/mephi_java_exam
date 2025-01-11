@@ -30,7 +30,8 @@ public class ListCommand implements Command{
             String expiredText = link.isExpired()? "Да" : "Нет";
             String limitClicksText = link.isLimitClicks()? "Да" : "Нет";
             System.out.println( link.getShortUrl() + ">" + link.getOriginalUrl()
-                    + " | Протухла? " + expiredText  + "| Лимит достигнут? " + limitClicksText);
+                    + " | Протухла? " + expiredText  + "| Лимит достигнут? " + limitClicksText
+                    + "| статистика переходов: " + link.getCurrentClicks() + " из " + link.getMaxClicks());
         }
     }
 }

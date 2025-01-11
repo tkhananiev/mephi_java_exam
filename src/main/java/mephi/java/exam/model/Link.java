@@ -8,10 +8,10 @@ public class Link {
     private final String ownerUuid;
     private final Instant creationTime;
     private final long lifeTimeSeconds;
-    private final long maxClicks;
-    private long currentClicks;
+    private int maxClicks;
+    private int currentClicks;
 
-    public Link(String originalUrl, String shortUrl, String ownerUuid, long lifeTimeSeconds, long maxClicks) {
+    public Link(String originalUrl, String shortUrl, String ownerUuid, long lifeTimeSeconds, int maxClicks) {
         this.originalUrl = originalUrl;
         this.shortUrl = shortUrl;
         this.ownerUuid = ownerUuid;
@@ -37,8 +37,12 @@ public class Link {
         return lifeTimeSeconds;
     }
 
-    public long getMaxClicks() {
+    public int getMaxClicks() {
         return maxClicks;
+    }
+
+    public void setMaxClicks(int maxClicks) {
+        this.maxClicks = maxClicks;
     }
 
     public long getCurrentClicks() {
@@ -53,7 +57,7 @@ public class Link {
         this.originalUrl = originalUrl;
     }
 
-    public void setCurrentClicks(long currentClicks) {
+    public void setCurrentClicks(int currentClicks) {
         this.currentClicks = currentClicks;
     }
 
